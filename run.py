@@ -3,17 +3,15 @@ import fileinput
 import pyotp
 import os
 import time
-import base64
 from dotenv import load_dotenv
 
 load_dotenv(dotenv_path='.env', verbose=True)
 
-secret = base64.b32encode(os.getenv('SECRET'))
+secret = os.getenv('SECRET')
 totp = pyotp.TOTP(secret)
-while True:
+
+def replace_code_to_file():
   newCode = totp.now()
-  print(newCode)
-  
   # Read in the file
   with open('ovpn-creds.txt', 'r') as file :
     filedata = file.read()
@@ -26,5 +24,14 @@ while True:
   with open('ovpn-creds.txt', 'w') as file:
     file.write(filedata)
 
-  print('Sth else')
+# Replace the code for the first time
+replace_code_to_file()
+
+# Wait until new code is out (exact or half minute)
+while (time.localtime().tm_sec != 0 and time.localtime().tm_sec != 30 ):
   time.sleep(1)
+
+# Every 30 seconds run replacement of code
+while True:
+    replace_code_to_file()
+    time.sleep(30)
