@@ -1,0 +1,9 @@
+version: '2'
+services:
+  2fa:
+    container_name: 2fa
+    restart: always
+    build: .
+    env_file: .env
+    volumes:
+      - .:/usr/src/app

@@ -1,0 +1,8 @@
+.env.example
+.git
+.gitignore
+.idea
+.ovpn-creds.txt
+docker-compose.yml
+Dockerfile
+README.md
