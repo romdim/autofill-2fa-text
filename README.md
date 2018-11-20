@@ -1,12 +1,12 @@
 # Autofill text with a 2FA code for use in VPN
 
-###Requirements:
+### Requirements:
 1. [Docker](https://www.docker.com/get-started).
 2. `mi-<your-name>.ovpn` file from admin (check your email).
 3. `mi-<your-name>.gauth` file from admin (check your email).
 4. Your 4-digit vpn `pin` (check your email).
 
-###Setup (osx):
+### Setup (osx):
 1. Clone the repo.
 2. In the repo root folder create a `.env` file and a `ovpn-creds.txt` like the according example files.
 3. Put the secret from `mi-<your-name>.gauth` to `.env` file.
