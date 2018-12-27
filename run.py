@@ -26,6 +26,7 @@ def replace_code_to_file():
 
 # Replace the code for the first time
 replace_code_to_file()
+print('Script is running. You can connect to VPN.')
 
 # Wait until new code is out (exact or half minute)
 while (time.localtime().tm_sec != 0 and time.localtime().tm_sec != 30 ):
